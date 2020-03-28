@@ -143,7 +143,7 @@ devuelva un array con los elementos hasta el primer callback que devolvió false
 
 (Inverso del dropWhile) */
 
-let numeros = [40, 50, 33, 8, 2, 3, 20]
+/* let numeros = [40, 50, 33, 8, 2, 3, 20]
 const multiploDe10 = x => x % 10 === 0
 
 const takeWhile = (numeros, operaciones) => {
@@ -154,4 +154,24 @@ const takeWhile = (numeros, operaciones) => {
     }
     return numeros
 }
-console.log(takeWhile(numeros, multiploDe10)) 
+console.log(takeWhile(numeros, multiploDe10))  */
+
+/* Crear una función findIndex que acepte un array y un callback y que:
+
+    por cada elemento del array ejecute el callback pasándole dicho elemento como argumento
+    devuelva el índice del elemento pasado como argumento del primer callback que devuelva true
+    si ningún callback devuelve true, devuelva undefined
+ */
+
+const numeros = [8, 2, 3, 40, 33, 50]
+const multiploDe10 = x => x % 10 === 0
+
+const findIndex = (numeros, operaciones) => {
+    for(let numero in numeros) {
+        if(operaciones(numeros[numero])) {
+            return numero
+        } 
+    }
+}
+
+console.log(findIndex(numeros, multiploDe10))
